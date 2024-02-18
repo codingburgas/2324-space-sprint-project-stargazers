@@ -14,7 +14,28 @@
 
 void convertYears() {
     int choice;
-    double earthYears, lightYears;
+    double earthYears;
+    const double conversionFactors[] = {
+        0.3066,     // Earth to Light years
+        1.0,        // Light years to Earth
+        0.240846,   // Mercury
+        0.615197,   // Venus
+        1.0,        // Earth
+        1.880815,   // Mars
+        11.862615,  // Jupiter
+        29.447498,  // Saturn
+        84.016846,  // Uranus
+        164.79132,  // Neptune
+        129.945,    // Kepler-186f
+        11.186,     // Proxima Centauri b
+        6.099,      // TRAPPIST-1e
+        3.093,      // HD 219134 b
+        1.274,      // WASP-121b
+        32.939,     // K2-18b
+        9.206,      // TRAPPIST-1f
+        37.09       // Gliese 581g
+    };
+
     do {
         CLEAR_SCREEN();
         HANDLE hConsole;
@@ -49,52 +70,70 @@ void convertYears() {
         std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
 
         SetConsoleTextAttribute(hConsole, 7);
-        std::cout << "   Options ->                                                                                                           " << std::endl;
+        std::cout << "   Select An Options ->      " << std::endl;
 
         SetConsoleTextAttribute(hConsole, 9);
         std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "1" << "\033[95m" << "]" << "\033[0m" << " Earth to Light years                      " << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "2" << "\033[95m" << "]" << "\033[0m" << " Light to Earth years                      " << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back                                      " << std::endl;
+        std::cout << "\033[0m" << "          Light Years            " << "\033[34m" << "|" << "\033[0m" << "          In The Solar Sytem           " << "\033[34m" << "|" << "\033[0m" << "           Out Of The Solar System " << std::endl;
 
         SetConsoleTextAttribute(hConsole, 9);
         std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "1" << "\033[95m" << "]" << "\033[0m" << " Earth to Light years       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "3" << "\033[95m" << "]" << "\033[0m" << " Mercury                          " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "11" << "\033[95m" << "]" << "\033[0m" << " Kepler-186f      " << "\033[95m" << "          [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back" << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "2" << "\033[95m" << "]" << "\033[0m" << " Light to Earth years       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "4" << "\033[95m" << "]" << "\033[0m" << " Venus                            " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "12" << "\033[95m" << "]" << "\033[0m" << " Proxima Centauri b               " << std::endl;
+        std::cout << "                                 " <<"\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "5" << "\033[95m" << "]" << "\033[0m" << " Earth                            " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "13" << "\033[95m" << "]" << "\033[0m" << " TRAPPIST-1e          " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Mars                            " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "14" << "\033[95m" << "]" << "\033[0m" << " HD 219134 b          " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "7" << "\033[95m" << "]" << "\033[0m" << " Jupiter                         " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "15" << "\033[95m" << "]" << "\033[0m" << " WASP - 121b            " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "8" << "\033[95m" << "]" << "\033[0m" << " Saturn                          " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "16" << "\033[95m" << "]" << "\033[0m" << " K2 - 18b               " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "9" << "\033[95m" << "]" << "\033[0m" << " Uranus                          " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "17" << "\033[95m" << "]" << "\033[0m" << " TRAPPIST - 1f          " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "10" << "\033[95m" << "]" << "\033[0m" << " Neptune                        " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "18" << "\033[95m" << "]" << "\033[0m" << " Gliese 581g          " << std::endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
+
 
         std::cout << std::endl;
         SetConsoleTextAttribute(hConsole, 13);
-        std::cout << "Enter your choice (0-2): ";
+        std::cout << "Enter your choice (0-18): ";
         std::cin >> choice;
 
         switch (choice) {
         case 1:
-            std::cout << "Enter Earth years: ";
-            std::cin >> earthYears;
-            lightYears = earthYears * 0.3066;
-            SetConsoleTextAttribute(hConsole, 7);
-            std::cout << "Converted to Light years: " << lightYears << std::endl;
-            SetConsoleTextAttribute(hConsole, 13);
-            std::cout << "Press any key to continue...";
-            std::cin.ignore();
-            std::cin.get();
-            break;
         case 2:
-            std::cout << "Enter Light years: ";
-            std::cin >> lightYears;
-            earthYears = lightYears / 0.3066;
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter Earth Years :" << "\033[34m" << "                     | " << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
             SetConsoleTextAttribute(hConsole, 7);
-            std::cout << "Converted to Earth years: " << earthYears << std::endl;
-            SetConsoleTextAttribute(hConsole, 13);
-            std::cout << "Press any key to continue...";
-            std::cin.ignore();
-            std::cin.get();
+            std::cout << "->";
+            std::cin >> earthYears;
+            std::cout << "Converted years: " << std::fixed << std::setprecision(2) << earthYears * conversionFactors[choice - 1] << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "0. Back" << "\033[34m" << "                                 | " << std::endl;
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cin >> choice;
             break;
         case 0:
             break;
         default:
-            std::cout << "Invalid choice. Please try again." << std::endl;
-            std::cout << "Press any key to continue...";
-            std::cin.ignore();
-            std::cin.get();
+            std::cout << "Invalid choice. Please try again.\n";
         }
     } while (choice != 0);
 }
@@ -182,16 +221,17 @@ void convertWeight() {
         case 16:
             SetConsoleTextAttribute(hConsole, 9);
             std::cout << "+-----------------------------------------+" << std::endl;
-            std::cout << "| " << "\033[0m" << "Enter weight in kilograms :" << "\033[95m" << "             | " << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter weight in kilograms :" << "\033[34m" << "             | " << std::endl;
             SetConsoleTextAttribute(hConsole, 9);
             std::cout << "+-----------------------------------------+" << std::endl;
             SetConsoleTextAttribute(hConsole, 7);
+            std::cout << "->";
             std::cin >> weight;
             newWeight = weight * weights[choice - 1];
             std::cout << "Your weight on the selected planet: " << newWeight << " kg" << std::endl;
             SetConsoleTextAttribute(hConsole, 9);
             std::cout << "+-----------------------------------------+" << std::endl;
-            std::cout << "|  0. Back                                |" << std::endl;
+            std::cout << "| " << "\033[0m" << "0. Back" << "\033[34m" << "                                 | " << std::endl;
             std::cout << "+-----------------------------------------+" << std::endl;
             std::cin >> choice;
             break;
@@ -277,7 +317,40 @@ void planetInfo() {
 
         switch (choice) {
         case 1:
-            showPlanetInfo("Mercury", "Mercury is the smallest planet in our solar system.");
+            CLEAR_SCREEN();
+
+            SetConsoleTextAttribute(hConsole, 7);
+            std::cout << R"(
+                                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                                    @@@@@@@@@@@@@@@@@@@@&#**//*(/%@@@@@@@@@@@@@@@@@@@@
+                                    @@@@@@@@@@@@@@#(((((///#////////*///%@@@@@@@@@@@@@
+                                    @@@@@@@@@@@((((/(/(((((#(((((//(((/*///(@@@@@@@@@@
+                                    @@@@@@@@(#(((/((((((####((((/(*((((/////*/(@@@@@@@
+                                    @@@@@@/(((((((((((*((/*((((//(/((((((#((#///&@@@@@
+                                    @@@@@((*(((//(((((/(((/(((*(((/(//(/(##(((((//@@@@
+                                    @@@@#(((/(((((((#(#(((((//*/((/((/(//(#(#(///(/@@@
+                                    @@@(#(#((#*(*(((###(((/(/#(((((//,/(/*((/(#(/*/#@@
+                                    @@@(((/(#(/(/(,(/((#(((((#(((((((/(//*/((/###(//@@
+                                    @@@(((/((((//(((*/(((((/#(##(((#//(/((/(#(((((*/@@
+                                    @@@(((((((/(,/,((((##(//((((((((((/*//((((((((/(@@
+                                    @@@((((((*(//*,(((##@(((#(#####(#//,,//((((#(((%@@
+                                    @@@@(/((((#((/(((#((((#(/(#((##(#/(*((///((((((@@@
+                                    @@@@@@(((((/(((((((((/(((//(//(((((((((((/((/(#@@@
+                                    @@@@@@#/(((((((((#/###(((((//,//#(#//(((((((@@@@@@
+                                    @@@@@@@@//(((((((#(#(#((##%#(((##(/(((#(((@@@@@@@@
+                                    @@@@@@@@@@@/((*((#(#(((##(#(((((((((((/(@@@@@@@@@@
+                                    @@@@@@@@@@@@@@&(((#(#((((//(((((((((@@@@@@@@@@@@@@
+                                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+)" << std::endl << std::endl;
+            std::cout << "                                    Mercury is the smallest planet in our solar system." << std::endl << std::endl;
+
+            std::cout << std::endl;
+            std::cout << std::endl;
+            std::cout << std::endl;
+
+            std::cout << "                                    Press any key to continue...";
+            std::cin.ignore();
+            std::cin.get();
             break;
         case 2:
             showPlanetInfo("Venus", "Venus is the second planet from the Sun and similar in size to Earth.");
@@ -334,17 +407,57 @@ void planetInfo() {
 }
 
 
+
 int main() {
     int choice;
 
     do {
         CLEAR_SCREEN();
-        std::cout << "Main Menu:\n";
-        std::cout << "1. Convert Years\n";
-        std::cout << "2. Convert Weight\n";
-        std::cout << "3. Planets Information\n";
-        std::cout << "0. Exit\n";
-        std::cout << "Enter your choice (0-3): ";
+
+        HANDLE hConsole;
+        hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+        SetConsoleTextAttribute(hConsole, 11);
+        std::cout << "           ______  ________   ______   _______    ______    ______   ________  ________  _______    ______  \n";
+        std::cout << "          /      \\|        \\ /      \\ |       \\  /      \\  /      \\ |        \\|        \\|       \\  /      \\ \n";
+        std::cout << "         |  $$$$$$\\ $$$$$$$$|  $$$$$$\\| $$$$$$$\\|  $$$$$$\\|  $$$$$$\\ \\$$$$$$$$| $$$$$$$$| $$$$$$$\\|  $$$$$$\\\n";
+
+        SetConsoleTextAttribute(hConsole, 9);
+        std::cout << "         | $$___\\$$  | $$   | $$__| $$| $$__| $$| $$ __\\$$| $$__| $$    /  $$ | $$__    | $$__| $$| $$___\\$$\n";
+        std::cout << "          \\$$    \\   | $$   | $$    $$| $$    $$| $$|    \\| $$    $$   /  $$  | $$  \\   | $$    $$ \\$$    \\ \n";
+        std::cout << "          _\\$$$$$$\\  | $$   | $$$$$$$$| $$$$$$$\\| $$ \\$$$$| $$$$$$$$  /  $$   | $$$$$   | $$$$$$$\\ _\\$$$$$$\\\n";
+
+        SetConsoleTextAttribute(hConsole, 13);
+        std::cout << "         |  \\__| $$  | $$   | $$  | $$| $$  | $$| $$__| $$| $$  | $$ /  $$___ | $$_____ | $$  | $$|  \\__| $$\n";
+        std::cout << "          \\$$    $$  | $$   | $$  | $$| $$  | $$ \\$$    $$| $$  | $$|  $$    \\| $$     \\| $$  | $$ \\$$    $$\n";
+        std::cout << "           \\$$$$$$    \\$$    \\$$   \\$$ \\$$   \\$$  \\$$$$$$  \\$$   \\$$ \\$$$$$$$$ \\$$$$$$$$ \\$$   \\$$  \\$$$$$$ \n";
+
+        std::cout << std::endl;
+        std::cout << std::endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
+
+        SetConsoleTextAttribute(hConsole, 7);
+        std::cout << "   Main Menu                                                                                                   " << std::endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "1" << "\033[95m" << "]" << "\033[0m" << " Convert Years                                 " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "2" << "\033[95m" << "]" << "\033[0m" << " Convert Weight                                   " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "3" << "\033[95m" << "]" << "\033[0m" << " Planets Information                                   " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "4" << "\033[95m" << "]" << "\033[0m" << " Moons Information                                    " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "5" << "\033[95m" << "]" << "\033[0m" << " Stars Information                                    " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "7" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << std::endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
+
+        std::cout << std::endl;
+        SetConsoleTextAttribute(hConsole, 13);
+        std::cout << "Enter your choice (0-7): ";
         std::cin >> choice;
 
         switch (choice) {
