@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-
+using namespace std;
 #ifdef _WIN32
 #include <windows.h>
 #define CLEAR_SCREEN() system("cls")
@@ -406,6 +406,56 @@ void planetInfo() {
     } while (choice != 0);
 }
 
+void starsInfo() {
+    int choice;
+
+    do {
+        CLEAR_SCREEN();
+        HANDLE hConsole;
+        hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 11);
+        cout << R"(                                  ______  ________   ______   _______    ______  )" << endl;
+        cout << R"(                                 /      \|        \ /      \ |       \  /      \ )" << endl;
+        cout << R"(                                |  $$$$$$\\$$$$$$$$|  $$$$$$\| $$$$$$$\|  $$$$$$\)" << endl;
+        SetConsoleTextAttribute(hConsole, 9);
+        cout << R"(                                | $$___\$$  | $$   | $$__| $$| $$__| $$| $$___\$$)" << endl;
+        cout << R"(                                 \$$    \   | $$   | $$    $$| $$    $$ \$$    \ )" << endl;
+        cout << R"(                                 _\$$$$$$\  | $$   | $$$$$$$$| $$$$$$$\ _\$$$$$$\)" << endl;
+        SetConsoleTextAttribute(hConsole, 13);
+        cout << R"(                                |  \__| $$  | $$   | $$  | $$| $$  | $$|  \__| $$)" << endl;
+        cout << R"(                                 \$$    $$  | $$   | $$  | $$| $$  | $$ \$$    $$)" << endl;
+        cout << R"(                                  \$$$$$$    \$$    \$$   \$$ \$$   \$$  \$$$$$$ )" << endl;
+
+
+
+        cout << endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        cout << "+----------------------------------------------------------------------------------------------------------------------+" << endl;
+
+        SetConsoleTextAttribute(hConsole, 7);
+        cout << "   Select a star:                                                                                                   " << endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        cout << "+----------------------------------------------------------------------------------------------------------------------+" << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "1" << "\033[95m" << "]" << "\033[0m" << " Sun                                     " << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "2" << "\033[95m" << "]" << "\033[0m" << " Proxima Centauri                        " << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "3" << "\033[95m" << "]" << "\033[0m" << " Sirius                                  " << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "4" << "\033[95m" << "]" << "\033[0m" << " Procyon                                 " << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "5" << "\033[95m" << "]" << "\033[0m" << " Canopus                                 " << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Arcturus                                " << endl;
+        cout << "\033[95m" << "  [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << endl;
+
+        SetConsoleTextAttribute(hConsole, 9);
+        cout << "+----------------------------------------------------------------------------------------------------------------------+" << endl;
+
+        cout << endl;
+        SetConsoleTextAttribute(hConsole, 13);
+        cout << "Enter your choice (0-16): ";
+        cin >> choice;
+    } while (choice != 0);
+}
+
 
 
 int main() {
@@ -469,6 +519,9 @@ int main() {
             break;
         case 3:
             planetInfo();
+            break;
+        case 5:
+            starsInfo();
             break;
         case 0:
             std::cout << "Exiting program.\n";
