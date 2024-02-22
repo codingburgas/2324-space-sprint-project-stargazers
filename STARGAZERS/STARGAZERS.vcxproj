@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="STARTGAZERS.cpp" />
+    <ClCompile Include="ConvertWeight.cpp" />
+    <ClCompile Include="ConvertYears.cpp" />
+    <ClCompile Include="MoonsInfo.cpp" />
+    <ClCompile Include="PlanetInfo.cpp" />
+    <ClCompile Include="STARGAZERS.cpp" />
+    <ClCompile Include="StarsInfo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConvertWeight.h" />
+    <ClInclude Include="ConvertYears.h" />
+    <ClInclude Include="MoonsInfo.h" />
+    <ClInclude Include="PlanetInfo.h" />
+    <ClInclude Include="StarsInfo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
