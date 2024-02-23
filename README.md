@@ -1,8 +1,9 @@
 <div align="center">
   <h1 style="color: #000000; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); font-size: 3em;">
-    Star<span style="color: #800080;">gazers</span>
+    <span style="color: #000000;">Star</span><span style="color: #800080;">gazers</span>
   </h1>
 </div>
+
 <div align="center">
   <img src="./STARGAZERS/images/Logo.png" width="200">
 </div>

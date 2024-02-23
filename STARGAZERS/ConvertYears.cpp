@@ -6,6 +6,8 @@ void convertYears() {
     const double conversionFactors[] = {
         0.3066,     // Earth to Light years
         1.0,        // Light years to Earth
+        5.879,      // Miles to Light Years
+        9.461,      // Kilometers to Light Years
         0.240846,   // Mercury
         0.615197,   // Venus
         1.0,        // Earth
@@ -66,14 +68,14 @@ void convertYears() {
 
         SetConsoleTextAttribute(hConsole, 9);
         std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "1" << "\033[95m" << "]" << "\033[0m" << " Earth to Light years       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "3" << "\033[95m" << "]" << "\033[0m" << " Mercury                          " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "11" << "\033[95m" << "]" << "\033[0m" << " Kepler-186f      " << "\033[95m" << "          [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back" << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "2" << "\033[95m" << "]" << "\033[0m" << " Light to Earth years       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "4" << "\033[95m" << "]" << "\033[0m" << " Venus                            " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "12" << "\033[95m" << "]" << "\033[0m" << " Proxima Centauri b               " << std::endl;
-        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "5" << "\033[95m" << "]" << "\033[0m" << " Earth                            " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "13" << "\033[95m" << "]" << "\033[0m" << " TRAPPIST-1e          " << std::endl;
-        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Mars                            " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "14" << "\033[95m" << "]" << "\033[0m" << " HD 219134 b          " << std::endl;
-        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "7" << "\033[95m" << "]" << "\033[0m" << " Jupiter                         " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "15" << "\033[95m" << "]" << "\033[0m" << " WASP - 121b            " << std::endl;
-        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "8" << "\033[95m" << "]" << "\033[0m" << " Saturn                          " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "16" << "\033[95m" << "]" << "\033[0m" << " K2 - 18b               " << std::endl;
-        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "9" << "\033[95m" << "]" << "\033[0m" << " Uranus                          " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "17" << "\033[95m" << "]" << "\033[0m" << " TRAPPIST - 1f          " << std::endl;
-        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "10" << "\033[95m" << "]" << "\033[0m" << " Neptune                        " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "18" << "\033[95m" << "]" << "\033[0m" << " Gliese 581g          " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "1" << "\033[95m" << "]" << "\033[0m" << " Earth to Light years       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "5" << "\033[95m" << "]" << "\033[0m" << " Mercury                          " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "13" << "\033[95m" << "]" << "\033[0m" << " Kepler-186f      " << "\033[95m" << "          [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back" << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "2" << "\033[95m" << "]" << "\033[0m" << " Light to Earth years       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Venus                            " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "14" << "\033[95m" << "]" << "\033[0m" << " Proxima Centauri b               " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "3" << "\033[95m" << "]" << "\033[0m" << " Light Years to Miles       " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "7" << "\033[95m" << "]" << "\033[0m" << " Earth                            " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "15" << "\033[95m" << "]" << "\033[0m" << " TRAPPIST-1e          " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "4" << "\033[95m" << "]" << "\033[0m" << " Light Years to Kilometers  " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "8" << "\033[95m" << "]" << "\033[0m" << " Mars                            " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "16" << "\033[95m" << "]" << "\033[0m" << " HD 219134 b          " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "9" << "\033[95m" << "]" << "\033[0m" << " Jupiter                         " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "17" << "\033[95m" << "]" << "\033[0m" << " WASP - 121b            " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "10" << "\033[95m" << "]" << "\033[0m" << " Saturn                         " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "18" << "\033[95m" << "]" << "\033[0m" << " K2 - 18b               " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "11" << "\033[95m" << "]" << "\033[0m" << " Uranus                         " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "19" << "\033[95m" << "]" << "\033[0m" << " TRAPPIST - 1f          " << std::endl;
+        std::cout << "                                 " << "\033[34m" << "|" << "\033[95m" << "  [" << "\033[0m" << "12" << "\033[95m" << "]" << "\033[0m" << " Neptune                        " << "\033[34m" << " | " << "\033[95m" << " [" << "\033[0m" << "20" << "\033[95m" << "]" << "\033[0m" << " Gliese 581g          " << std::endl;
 
         SetConsoleTextAttribute(hConsole, 9);
         std::cout << "+----------------------------------------------------------------------------------------------------------------------+" << std::endl;
@@ -81,14 +83,74 @@ void convertYears() {
 
         std::cout << std::endl;
         SetConsoleTextAttribute(hConsole, 13);
-        std::cout << "\033[35m" << "> " << "\033[0m" << "Choice?" << "\033[35m" << " (" << "\033[0m" << "0 - 18" << "\033[35m" << ") " << "\033[0m" << ":" << std::endl;
+        std::cout << "\033[35m" << "> " << "\033[0m" << "Choice?" << "\033[35m" << " (" << "\033[0m" << "0 - 20" << "\033[35m" << ") " << "\033[0m" << ":" << std::endl;
         std::cin >> choice;
 
         switch (choice) {
         case 1:
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter Earth Years:  " << "\033[34m" << "                    | " << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            SetConsoleTextAttribute(hConsole, 7);
+            std::cout << "->";
+            std::cin >> earthYears;
+            std::cout << "Converted years: " << std::fixed << std::setprecision(2) << earthYears * conversionFactors[choice - 1] << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "0. Back" << "\033[34m" << "                                 | " << std::endl;
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cin >> choice;
+            break;
         case 2:
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter Light Years:  " << "\033[34m" << "                    | " << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            SetConsoleTextAttribute(hConsole, 7);
+            std::cout << "->";
+            std::cin >> earthYears;
+            std::cout << "Converted years: " << std::fixed << std::setprecision(2) << earthYears * conversionFactors[choice - 1] << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "0. Back" << "\033[34m" << "                                 | " << std::endl;
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cin >> choice;
+            break;
         case 3:
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter Light Years:  " << "\033[34m" << "                    | " << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            SetConsoleTextAttribute(hConsole, 7);
+            std::cout << "->";
+            std::cin >> earthYears;
+            std::cout << "Converted years: " << std::fixed << std::setprecision(2) << earthYears * conversionFactors[choice - 1] << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "0. Back" << "\033[34m" << "                                 | " << std::endl;
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cin >> choice;
+            break;
         case 4:
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter Light Years:     " << "\033[34m" << "                 | " << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            SetConsoleTextAttribute(hConsole, 7);
+            std::cout << "->";
+            std::cin >> earthYears;
+            std::cout << "Converted years: " << std::fixed << std::setprecision(2) << earthYears * conversionFactors[choice - 1] << std::endl;
+            SetConsoleTextAttribute(hConsole, 9);
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cout << "| " << "\033[0m" << "0. Back" << "\033[34m" << "                                 | " << std::endl;
+            std::cout << "+-----------------------------------------+" << std::endl;
+            std::cin >> choice;
+            break;
         case 5:
         case 6:
         case 7:
@@ -103,9 +165,11 @@ void convertYears() {
         case 16:
         case 17:
         case 18:
+        case 19:
+        case 20:
             SetConsoleTextAttribute(hConsole, 9);
             std::cout << "+-----------------------------------------+" << std::endl;
-            std::cout << "| " << "\033[0m" << "Enter Earth Years :" << "\033[34m" << "                     | " << std::endl;
+            std::cout << "| " << "\033[0m" << "Enter Earth Years:  " << "\033[34m" << "                    | " << std::endl;
             SetConsoleTextAttribute(hConsole, 9);
             std::cout << "+-----------------------------------------+" << std::endl;
             SetConsoleTextAttribute(hConsole, 7);
