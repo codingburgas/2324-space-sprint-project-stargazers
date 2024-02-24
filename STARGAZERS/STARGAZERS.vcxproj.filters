@@ -36,6 +36,9 @@
     <ClCompile Include="Credits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="constellationInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertYears.h">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Credits.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstellationInfo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

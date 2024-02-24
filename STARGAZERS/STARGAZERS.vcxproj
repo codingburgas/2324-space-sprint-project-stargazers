@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="constellationInfo.cpp" />
     <ClCompile Include="ConvertWeight.cpp" />
     <ClCompile Include="ConvertYears.cpp" />
     <ClCompile Include="MoonsInfo.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="StarsInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConstellationInfo.h" />
     <ClInclude Include="ConvertWeight.h" />
     <ClInclude Include="ConvertYears.h" />
     <ClInclude Include="Credits.h" />
