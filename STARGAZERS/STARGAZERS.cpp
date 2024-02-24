@@ -6,6 +6,7 @@
 #include "PlanetInfo.h"
 #include "MoonsInfo.h"
 #include "StarsInfo.h"
+#include "Credits.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -57,8 +58,8 @@ int main() {
         std::cout << "\033[95m" << "  [" << "\033[0m" << "3" << "\033[95m" << "]" << "\033[0m" << " Planets Information                                   " << std::endl;
         std::cout << "\033[95m" << "  [" << "\033[0m" << "4" << "\033[95m" << "]" << "\033[0m" << " Moons Information                                    " << std::endl;
         std::cout << "\033[95m" << "  [" << "\033[0m" << "5" << "\033[95m" << "]" << "\033[0m" << " Stars Information                                    " << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << std::endl;
-        std::cout << "\033[95m" << "  [" << "\033[0m" << "7" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "6" << "\033[95m" << "]" << "\033[0m" << " Contstellar Information                               " << std::endl;
+        std::cout << "\033[95m" << "  [" << "\033[0m" << "7" << "\033[95m" << "]" << "\033[0m" << " Credits                                    " << std::endl;
         std::cout << "\033[95m" << "  [" << "\033[0m" << "0" << "\033[95m" << "]" << "\033[0m" << " Back                                    " << std::endl;
 
         SetConsoleTextAttribute(hConsole, 9);
@@ -84,6 +85,12 @@ int main() {
             break;
         case 5:
             starsInfo();
+            break;
+        case 6:
+            // constellarInfo();
+            break;
+        case 7:
+            Credits();
             break;
         case 0:
             std::cout << "Exiting program.\n";

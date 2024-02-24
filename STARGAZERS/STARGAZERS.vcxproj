@@ -131,12 +131,14 @@
     <ClCompile Include="ConvertYears.cpp" />
     <ClCompile Include="MoonsInfo.cpp" />
     <ClCompile Include="PlanetInfo.cpp" />
+    <ClCompile Include="Credits.cpp" />
     <ClCompile Include="STARGAZERS.cpp" />
     <ClCompile Include="StarsInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertWeight.h" />
     <ClInclude Include="ConvertYears.h" />
+    <ClInclude Include="Credits.h" />
     <ClInclude Include="MoonsInfo.h" />
     <ClInclude Include="PlanetInfo.h" />
     <ClInclude Include="StarsInfo.h" />
